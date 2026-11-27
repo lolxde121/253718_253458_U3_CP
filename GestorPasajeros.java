@@ -1,12 +1,10 @@
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.TreeMap;
 
 public class GestorPasajeros {
     private TreeMap<Integer, Pasajero> pasajeros = new TreeMap<>();
 
-    public Boolean registrarPasajero(Pasajero pasajero){
+    public boolean registrarPasajero(Pasajero pasajero){
         if(pasajero == null){
             return false;
         }
@@ -19,12 +17,12 @@ public class GestorPasajeros {
     }
 
     public List<Pasajero> obtenerPasajeros(){
-       List<Pasajero> listaPasajeros = new ArrayList<>(pasajeros.values());
+       List<Pasajero> listaPasajeros = List.copyOf(pasajeros.values());
        return listaPasajeros;
     }
 
     public List<Pasajero> obtenerAdultosMayores(){
-        List<Pasajero> listaAdultos= pasajeros.entrySet().stream().filter(pasajero -> pasajero.getValue().esAdultoMayor()).map(Map.Entry::getValue).toList();
+            List<Pasajero> listaAdultos= pasajeros.values().stream().filter(Pasajero::esAdultoMayor).toList();
         return listaAdultos;
     }
 }
