@@ -2,7 +2,6 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class GestorPasajero {
-    private Pasajero pasajero;
     private TreeMap<Integer, Pasajero> pasajeros = new TreeMap<>();
 
     public void registrarPasajero(Pasajero pasajero){
@@ -14,24 +13,25 @@ public class GestorPasajero {
             pasajeros.put(pasajero.getNumeroAsiento(), pasajero);
             System.out.println("Pasajero Resgitrado Exitosamente");
         }else {
-            System.out.println("Numero de Asiento Ya Resgistrado Intente de Nuevo");
+            System.out.println("Numero de Asiento Ya Registrado Intente de Nuevo");
         }
     }
 
-    public void obtenerPasajeros(int opcion){
-        System.out.println("Lista de Pasajeros Por Orden");
+    public void obtenerPasajeros(){
+        System.out.println("<--Lista de Pasajeros Por Orden-->");
         for (Map.Entry<Integer, Pasajero> nodo : pasajeros.entrySet()){
-            System.out.println("Lista de Pasajeros Por Orden");
-            System.out.println("Numero Asiento" + nodo.getKey() + "Pasajero Nombre" +  nodo.getValue().getNombre());
+            System.out.println("[Numero Asiento: " + "#" + nodo.getKey() + " " + "Pasajero Nombre:" + " " +nodo.getValue().getNombre() +"]");
         }
 
 
     }
 
-    public void obtenerAdultosmayores(){
-        System.out.println("Lista de Pasajeros Adultos Mayores");
+    public void obtenerAdultosMayores(){
+        System.out.println("<--Lista de Pasajeros Adultos Mayores-->");
         for(Map.Entry<Integer, Pasajero> nodo: pasajeros.entrySet()){
-            System.out.println("Numero Asiento" + nodo.getKey() + "Pasajero Nombre" +  nodo.getValue().getNombre());
+            if(nodo.getValue().esAdultoMayor()){
+                System.out.println("[Numero Asiento: " + "#" + nodo.getKey() + " " + "Pasajero Nombre:" + " " +nodo.getValue().getNombre() +"]");
+            }
         }
     }
 }
