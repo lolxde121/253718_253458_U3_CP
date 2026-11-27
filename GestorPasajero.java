@@ -11,7 +11,7 @@ public class GestorPasajero {
 
         if(!pasajeros.containsKey(pasajero.getNumeroAsiento())){ // validacion de numero de asiento tree map hace el ordenamient por asientos
             pasajeros.put(pasajero.getNumeroAsiento(), pasajero);
-            System.out.println("Pasajero Resgitrado Exitosamente");
+            System.out.println("Pasajero Registrado Exitosamente");
         }else {
             System.out.println("Numero de Asiento Ya Registrado Intente de Nuevo");
         }
